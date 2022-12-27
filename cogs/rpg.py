@@ -39,7 +39,7 @@ class RPG(commands.Cog):
         await self.dano(ctx=ctx, dado=dado, x=1)
 
     @app_commands.command(name='dano', description="Rola dados de dano")
-    async def opc(self, interaction: discord.Interaction, dado: str):
+    async def dano_dado(self, interaction: discord.Interaction, dado: str):
         ctx = await self.bot.get_context(interaction)
         await self.dano(ctx=ctx, dado=dado, x=0)
 
