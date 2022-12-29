@@ -1,6 +1,4 @@
 class Cellbit:
-    def __init__(self) -> None:
-        pass
 
     def OPC(self, dano: str, x):
         try:
