@@ -11,6 +11,7 @@ class Extras(commands.Cog):
     async def cls(self, interaction: discord.Interaction, quantidade: int=500):
         ctx = await self.bot.get_context(interaction)
         await ctx.channel.purge(limit=quantidade)
+        await ctx.send(content="Apagando mensagens...", ephemeral=True)
 
 
 async def setup(bot):
