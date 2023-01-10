@@ -28,13 +28,16 @@ def add_button(label, callback, style=discord.ButtonStyle.grey, Button=discord.u
     return button
 
 def verifica(self):
-    if self.member_voice and self.member_voice.channel:
-        if self.ctx.voice_client:
-            if self.member_voice.channel == self.ctx.voice_client.channel:
-                if self.client_voice.is_playing():
-                    return True
-                else:
-                    return False
+    if not self.member_voice or not self.member_voice.channel:
+        return None
+    if not self.ctx.voice_client:
+        return None
+    if self.member_voice.channel != self.ctx.voice_client.channel:
+        return None
+    if self.client_voice.is_playing():
+        return True
+    else:
+        return False
 
 class MusicButtons(discord.ui.View):
     def __init__(self, bot: commands.Bot, server, ctx: commands.Context):
